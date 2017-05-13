@@ -3,6 +3,7 @@ import math
 import pickle
 import logging
 from .ndarray import NDArray, zeros, clip, sqrt, sign
+from .ndarray import abs AS ABS
 from .ndarray import sgd_update, sgd_mom_update, adam_update, rmsprop_update, rmspropalex_update
 from .random import normal
 
@@ -739,7 +740,7 @@ class Ftrl(Optimizer):
 
         # update weight
         weight[:] = (sign(dn) * self.lamda1 - dn) / \
-            ((self.beta + sqrt(n)) / lr + wd) * (NDArray.abs(dn) > self.lamda1)
+            ((self.beta + sqrt(n)) / lr + wd) * (ABS(dn) > self.lamda1)
 
 @register
 class Test(Optimizer):
