@@ -95,7 +95,7 @@ class SparsePrefetcherIter : public PrefetcherIter {
             auto& indices = batch.data[data_iter + 1];
             auto& indptr = batch.data[data_iter + 2];
             // allocate memory
-            CHECK_EQ(indices.shape_.Size(), values.shape_.Size());
+            //CHECK_EQ(indices.shape_.Size(), values.shape_.Size());
             nd.CheckAndAllocAuxData(csr::kIdx, indices.shape_);
             nd.CheckAndAllocData(values.shape_);
             nd.CheckAndAllocAuxData(csr::kIndPtr, indptr.shape_);

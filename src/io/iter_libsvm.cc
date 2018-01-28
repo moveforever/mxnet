@@ -161,6 +161,8 @@ class LibSVMIter: public SparseIIterator<DataInst> {
  private:
   inline TBlob AsDataBlob(const dmlc::Row<uint64_t>& row) {
     const real_t* ptr = row.value;
+    if (ptr == nullptr)
+      return TBlob((real_t*) ptr, mshadow::Shape1(0), cpu::kDevMask);  // NOLINT(*)
     TShape shape(mshadow::Shape1(row.length));
     return TBlob((real_t*) ptr, shape, cpu::kDevMask);  // NOLINT(*)
   }

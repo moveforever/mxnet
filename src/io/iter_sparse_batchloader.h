@@ -187,7 +187,7 @@ class SparseBatchLoader : public BatchLoader, public SparseIIterator<TBlobBatch>
       vec_sizes[i] = size;
     }
 
-    CHECK_EQ(vec_sizes[0], vec_sizes[1]);
+    //CHECK_EQ(vec_sizes[0], vec_sizes[1]);
     for (size_t i = 0; i < total_size; ++i) {
       int src_type_flag = inst_cache_[0].data[i].type_flag_;
       // init object attributes
